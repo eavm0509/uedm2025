@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Estudiantes</title>
+        <link href="../../../Libs/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <script src="../../../bootstrap-5.3.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="../../../Libs/jquery.min.js"></script>
+        <script src="../../../Libs/ajax.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <style>
+                  input[type="file"]::file-selector-button {
+                display: none;
+                }
+        </style>
+    </head>
+    <body>
+    <form action="../php/subir_nominaxls.php" method="POST" enctype="multipart/form-data">
+        <div class="form-group row">
+            <h3 class="text-primary col-12 text-center">IMPORTAR NOMINA DE ESTUDIANTES DESDE ARCHIVO XLS</h3>
+        </div>
+    
+        <div class="container alert alert-info" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc; ">
+
+            <div class="row">
+                <div class="col-6 p-2" style="border-right: 2px solid #ccc;">
+                    <label for="cmb_curso"><b>¿A que año o curso desea cargar nómina? :</b></label>
+                    <select name="cmb_curso" id="cmb_curso" > </select>
+                </div>
+                <div class="col-6 p-2" style="border-right: 2px solid #ccc;">
+                  <label class="btn btn-success" for="archivo">📁 Elegir archivo XLS</label>
+                  <input  type="file" name="archivo" id="archivo" />
+                  <button class="btn btn-success" type="submit">Subir nómina</button>
+        
+                </div>
+
+            </div>
+        </div>
+
+    </form>
+    <script>
+        fetch('../../fcursos_/php/js_fcur_descri.php')
+        .then(response => response.json())
+        .then(data => {
+                const combo = document.getElementById('cmb_curso');
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.codigook;
+                    option.text = item.descriok;
+                    combo.appendChild(option);
+                    });
+            })
+            .catch(error => console.error('Error al cargar datos:', error));
+    </script> 
+
+    </body>
+
+
+</html>

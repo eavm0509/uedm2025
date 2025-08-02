@@ -1,0 +1,27 @@
+
+
+# Evitar que se reescriban rutas dentro de /login/
+#RewriteCond %{REQUEST_URI} !^/csn_school2024/login/
+
+
+#RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?page=$1 [QSA,L]
+#csn_school2024/formularios/paralelos_/vistas/index.php
+# Activar mod_rewrite
+RewriteEngine On
+
+# Establecer la base (ajusta si tu carpeta está dentro de otra)
+RewriteBase /school2025/
+
+# Ocultar extensión .php en URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)$ $1.php [L,QSA]
+
+# Redireccionar al login si se accede a /login directamente
+#RewriteRule ^login$ login/login.php [L]
+
+# Opcional: Evitar acceso directo a archivos .ini o .env
+<FilesMatch "\.(ini|env|json)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>

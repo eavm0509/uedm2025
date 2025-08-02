@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+   
+        <title>INSTITUCION</title>
+        <link href="../../Libs/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+        <script src="../../Libs/bootstrap-5.3.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+        <script src="../../Libs/jquery.min.js"></script>
+
+        <script src="../../Libs/ajax.js"></script>
+        
+    </head>
+    <body onload="ajax_institucion();">
+       <div class="container alert alert-info" style="border-top: 1px solid #ccc; border-bottom: 1px solid #ccc;" >
+        
+            <form  action = "php/actu_cont.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <h3 class="text-primary col-12 text-center">DATOS DE LA INSTITUCION</h3> <!--"php/controlador_insertar.php" -->
+            </div>  
+            
+            <div class="row">
+  <!-- Columna 1: Encabezados y pie de página -->
+  <div class="col-md-6">
+    <div class="mb-3">
+      <label for="txt_titul1" class="form-label">Encabezado 1:</label>
+      <input type="text" id="txt_titul1" name="txt_titul1" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_titul2" class="form-label">Encabezado 2:</label>
+      <input type="text" id="txt_titul2" name="txt_titul2" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_titul3" class="form-label">Encabezado 3:</label>
+      <input type="text" id="txt_titul3" name="txt_titul3" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_titul4" class="form-label">Pie de página 1:</label>
+      <input type="text" id="txt_titul4" name="txt_titul4" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_titul5" class="form-label">Pie de página 2:</label>
+      <input type="text" id="txt_titul5" name="txt_titul5" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_ruc" class="form-label">RUC:</label>
+      <input type="text" id="txt_ruc" name="txt_ruc" class="form-control">
+    </div>
+    <div class="mb-3">
+      <label for="txt_desano" class="form-label">Descripcion de año:</label>
+      <input type="text" id="txt_desano" name="txt_desano" class="form-control">
+    </div>
+
+     <div class="mb-3">
+      <label for="txt_ordina" class="form-label">Matricula ordinaria:</label>
+      <input type="text" id="txt_ordina" name="txt_ordina" class="form-control">
+    </div>
+
+     <div class="mb-3">
+      <label for="txt_fecini" class="form-label">Fecha inicio:</label>
+      <input type="text" id="txt_fecini" name="txt_fecini" class="form-control">
+    </div>
+
+     <div class="mb-3">
+      <label for="txt_provin" class="form-label">Provincia:</label>
+      <input type="text" id="txt_provin" name="txt_provin" class="form-control">
+    </div>
+
+     <div class="mb-3">
+      <label for="txt_fecgra" class="form-label">Fecha de graduacion:</label>
+      <input type="text" id="txt_fecgra" name="txt_fecgra" class="form-control">
+    </div>
+
+     <!-- <form action="tu_script.php" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="carnet1" class="form-label">Carnet:</label>
+    <input type="file" id="carnet1" name="carnet1" accept="image/*" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="carnet2" class="form-label">Carnet 2:</label>
+    <input type="file" id="carnet2" name="carnet2" accept="image/*" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Subir</button>
+</form> -->
+    
+  </div>
+
+  <!-- Columna 2: Autoridades -->
+  <div class="col-md-6">
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigrec" class="form-label">Rector(a)(sig):</label>
+        <input type="text" id="txt_sigrec" name="txt_sigrec" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_rector" class="form-label">Rector(a):</label>
+        <input type="text" id="txt_rector" name="txt_rector" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigvr" class="form-label">Vice(sig):</label>
+        <input type="text" id="txt_sigvr" name="txt_sigvr" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_vicere" class="form-label">Vicerrector(a):</label>
+        <input type="text" id="txt_vicere" name="txt_vicere" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigpv" class="form-label">1er Vocal(sig):</label>
+        <input type="text" id="txt_sigpv" name="txt_sigpv" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_privoc" class="form-label">Primer vocal:</label>
+        <input type="text" id="txt_privoc" name="txt_privoc" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigsv" class="form-label">2do Vocal(sig):</label>
+        <input type="text" id="txt_sigsv" name="txt_sigsv" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_segvoc" class="form-label">Segundo vocal:</label>
+        <input type="text" id="txt_segvoc" name="txt_segvoc" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigtv" class="form-label">3er Vocal(sig):</label>
+        <input type="text" id="txt_sigtv" name="txt_sigtv" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_tervoc" class="form-label">Tercer vocal:</label>
+        <input type="text" id="txt_tervoc" name="txt_tervoc" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigsec" class="form-label">Secre(sig):</label>
+        <input type="text" id="txt_sigsec" name="txt_sigsec" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_secret" class="form-label">Secretaria:</label>
+        <input type="text" id="txt_secret" name="txt_secret" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigins" class="form-label">Inspector(sig):</label>
+        <input type="text" id="txt_sigins" name="txt_sigins" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_inspec" class="form-label">Inspector:</label>
+        <input type="text" id="txt_inspec" name="txt_inspec" class="form-control">
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-3">
+        <label for="txt_sigcol" class="form-label">Colector(sig):</label>
+        <input type="text" id="txt_sigcol" name="txt_sigcol" class="form-control">
+      </div>
+      <div class="col-md-9">
+        <label for="txt_colec" class="form-label">Colector:</label>
+        <input type="text" id="txt_colec" name="txt_colec" class="form-control">
+      </div>
+    </div>
+
+     <!-- <form action="tu_script.php" method="POST" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label for="carnet1" class="form-label">Sello:</label>
+    <input type="file" id="carnet1" name="carnet1" accept="image/*" class="form-control">
+  </div>
+
+  <div class="mb-3">
+    <label for="carnet2" class="form-label">Sello dere:</label>
+    <input type="file" id="carnet2" name="carnet2" accept="image/*" class="form-control">
+  </div>
+
+   <div class="mb-3">
+    <label for="carnet2" class="form-label">Escudo:</label>
+    <input type="file" id="carnet2" name="carnet2" accept="image/*" class="form-control">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Subir</button>
+</form> -->
+  </div>
+</div>
+
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-success">Actualizar</button>
+                <button type="button" class="btn btn-secondary" onclick="location.href='../../admin.php'">Cerrar</button>
+            </div>
+
+            
+            
+       </div>
+    </body>
+    
+</html>
+
